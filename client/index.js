@@ -4,14 +4,11 @@ import ReactDOM from "react-dom";
 import { applyMiddleware, createStore } from "redux";
 import combinedReducers from './reducers/index';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import actions from './actions/index';
 
-
-const middleware = applyMiddleware(logger);
+const middleware = applyMiddleware(logger, thunk);
 
 const store = createStore(combinedReducers, {}, middleware);
-
-store.subscribe(() => {
-  console.log("store changed",store.getState());
-})
 
 ReactDOM.render(<App />, document.getElementById("root"));
