@@ -19,5 +19,11 @@ module.exports = {
         loader: "babel-loader"
       }
     ]
+  },
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: path.join(__dirname, "./dist"),
+    compress: true,
+    port: 8000
   }
 };
